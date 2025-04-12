@@ -25,16 +25,12 @@ app.get('/api/hello', function (req, res) {
 });
 
 // parse headers
-app.get('/api/:header', (req, res) => {
-  const head = req.params.header;
-  if (head === "whoami") {
-    console.log(req.params.header);
-    res.json({ 
-      ipaddress: req.ip, 
-      language: req.headers['accept-language'], 
-      software: req.headers['user-agent']
-    });
-  };
+app.get('/api/whoami', (req, res) => {
+  res.json({ 
+    ipaddress: req.ip, 
+    language: req.headers['accept-language'], 
+    software: req.headers['user-agent']
+  });
 });
 
 // listen for requests :)
